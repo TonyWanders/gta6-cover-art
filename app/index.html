@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Sunset Cover Lab - GTA 6 style cover maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header>
+  <h1>VICE SUNSET COVER LAB</h1>
+  <p>Turn any photo and caption into GTA 6 style cover art. Your photos never leave this machine. Export as PNG.</p>
+</header>
+<main>
+  <section class="panel controls">
+    <h2>1. Photo</h2>
+    <label for="photo">Upload a photo (or up to 3 for multi-panel layouts)</label>
+    <input type="file" id="photo" accept="image/*" multiple>
+    <div class="thumbs" id="thumbs"></div>
+    <button id="sampleBtn" class="ghost" type="button">Use sample sunset scene</button>
+    <button id="clearBtn" class="ghost" type="button">Clear photos</button>
+
+    <h2>2. Words</h2>
+    <label for="title">Main title</label>
+    <input type="text" id="title" value="VICE CITY" maxlength="30">
+    <label for="subtitle">Subtitle / caption</label>
+    <input type="text" id="subtitle" value="Welcome to Leonida" maxlength="60">
+    <label for="badge">Badge (top corner)</label>
+    <input type="text" id="badge" value="VI" maxlength="10">
+
+    <h2>3. Look</h2>
+    <div class="row">
+      <div>
+        <label for="layout">Layout</label>
+        <select id="layout">
+          <option value="grid">Classic grid (3 panels)</option>
+          <option value="hero">Single hero photo</option>
+          <option value="duo">Split duo (2 photos)</option>
+        </select>
+      </div>
+      <div>
+        <label for="grade">Colour grade</label>
+        <select id="grade">
+          <option value="sunset">Vice Sunset (pink and orange)</option>
+          <option value="neon">Neon Night (purple and teal)</option>
+          <option value="gold">Palm Gold (warm gold)</option>
+          <option value="noir">Mono Noir (black and white)</option>
+        </select>
+      </div>
+    </div>
+    <label for="gradeAmt">Grade strength: <span id="gradeAmtVal">70</span>%</label>
+    <input type="range" id="gradeAmt" min="0" max="100" value="70">
+    <label for="vignette">Vignette: <span id="vignetteVal">40</span>%</label>
+    <input type="range" id="vignette" min="0" max="100" value="40">
+    <label for="grain">Grain: <span id="grainVal">15</span>%</label>
+    <input type="range" id="grain" min="0" max="100" value="15">
+    <label for="size">Export size</label>
+    <select id="size">
+      <option value="1080x1080">1080 x 1080 (square post)</option>
+      <option value="1080x1350">1080 x 1350 (portrait post)</option>
+      <option value="1920x1080">1920 x 1080 (wide post)</option>
+    </select>
+    <p class="note">All art here is original: gradients, shapes and lettering drawn in code. No Rockstar logo, official artwork or official font is used. Photos you upload stay in your browser.</p>
+    <button id="exportBtn" type="button">Export PNG</button>
+    <button id="samplePngBtn" class="alt" type="button">Export sample PNG</button>
+  </section>
+
+  <section class="panel preview">
+    <h2>Preview</h2>
+    <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
+    <p class="note" id="status">No photo yet. The preview shows the built-in sample sunset scene. Upload a photo to replace it.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
